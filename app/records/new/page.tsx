@@ -6,7 +6,7 @@ export default function NewRecord() {
   const [form, setForm] = useState({
     amount: "",
     type: "支出",
-    category: "",
+    tag: "",
     date: "",
     note: "",
   });
@@ -53,11 +53,11 @@ export default function NewRecord() {
         </select>
       </label>
       <label>
-        分类：
+        标签：
         <input
           type="text"
-          name="category"
-          value={form.category}
+          name="tag"
+          value={form.tag}
           onChange={handleChange}
           required
         />
