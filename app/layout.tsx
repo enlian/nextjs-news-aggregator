@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "./components/Header";
 
 export const metadata: Metadata = {
-  title: "新闻聚合器",
-  description: "新闻聚合器",
+  title: "Nextjs记账本",
+  description: "记录你的每一笔收入和支出",
 };
 
 export default function RootLayout({
