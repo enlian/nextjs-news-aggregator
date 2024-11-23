@@ -1,5 +1,5 @@
-'use client';
-import { Virtuoso } from 'react-virtuoso';
+"use client";
+import { Virtuoso } from "react-virtuoso";
 import DetailItem from "./DetailItem";
 
 export default function name() {
@@ -7,10 +7,12 @@ export default function name() {
   const list = Array.from({ length: 1000 }, (_, index) => `Item ${index + 1}`);
 
   return (
-    <Virtuoso
-      totalCount={items.length}
-      itemContent={(index) => <div style={{ padding: 10 }}>Row {items[index]}</div>}
-      style={{ height: '400px', width: '300px' }}
-    />
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Virtuoso
+        totalCount={items.length}
+        itemContent={(index) => <DetailItem />}
+        style={{ height: "100%", width: "100%" }}
+      />
+    </div>
   );
 }
