@@ -1,5 +1,6 @@
 import { RiMoneyCnyCircleFill } from "react-icons/ri";
 import moment from 'moment';
+import styles from'./DetailItem.module.css'
 
 interface item {
   tag: string;
@@ -38,7 +39,7 @@ const DetailItem = () => {
 
   return (
     <div>
-      <div>
+      <div className={styles.header}>
         <div>11月15日 昨天</div>
         <div>
           <i>出</i>100 <i>入</i>50
@@ -46,7 +47,7 @@ const DetailItem = () => {
       </div>
 
       {items.map((i) => (
-        <div key={i.time}>
+        <div key={i.time} className="item">
           <RiMoneyCnyCircleFill/>
           <div>
             <div>
