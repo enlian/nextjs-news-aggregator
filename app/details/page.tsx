@@ -1,13 +1,14 @@
 "use client";
 import { Virtuoso } from "react-virtuoso";
 import DetailItem from "./DetailItem";
+import styles from './page.module.css'
 
 export default function name() {
   const items = [1, 2, 3, 4, 5, 6, 4, 8];
   const list = Array.from({ length: 1000 }, (_, index) => `Item ${index + 1}`);
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <div className={styles.detailPage}>
       <Virtuoso
         totalCount={items.length}
         itemContent={(index) => <DetailItem />}
