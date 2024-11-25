@@ -1,6 +1,7 @@
 "use client";
 import { Virtuoso } from "react-virtuoso";
 import DetailItem from "./DetailItem";
+import TimePicker from './TimePicker'
 import styles from './page.module.css'
 
 export default function name() {
@@ -9,6 +10,7 @@ export default function name() {
 
   return (
     <div className={styles.detailPage}>
+      <TimePicker/>
       <Virtuoso
         totalCount={items.length}
         itemContent={(index) => <DetailItem />}

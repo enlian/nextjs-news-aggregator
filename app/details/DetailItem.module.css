@@ -43,6 +43,9 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0 10px 0 10px;
+  .middle{
+    margin-left: 10px;
+  }
   .tag {
     font-size: medium;
     font-weight: bold;
