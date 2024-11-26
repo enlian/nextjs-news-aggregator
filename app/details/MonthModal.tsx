@@ -11,7 +11,12 @@ const MonthModal = ({ isOpen, onClose }: ModalProps) => {
   if (isOpen) {
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
-        <div className={styles.modalContent}>
+        <div
+          className={styles.modalContent}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <IoMdClose size={30} onClick={onClose} />
         </div>
       </div>
