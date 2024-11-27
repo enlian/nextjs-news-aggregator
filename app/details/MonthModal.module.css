@@ -10,14 +10,42 @@
   justify-content: center;
   z-index: 1000;
 }
-.modalContent{
-    background: white;
-    border-radius: 8px;
-    width: 400px;
-    height: 400px;
-    padding: 20px;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.close {
+  position: absolute;
+  left: 15px;
+  top: 15px;
 }
-
-
+.modalContent {
+  background: white;
+  border-radius: 8px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.modalBody {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  margin-top: 15px;
+  p {
+    text-align: center;
+  }
+  .monthList {
+    display: flex;
+    flex-direction: row;
+    width: 360px;
+  }
+  .month {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    background-color: aliceblue;
+  }
+  .isCurrentMonth {
+    background-color: aquamarine;
+  }
+}
