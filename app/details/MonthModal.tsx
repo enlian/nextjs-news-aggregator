@@ -1,6 +1,6 @@
 import styles from "./MonthModal.module.css";
 import { IoMdClose } from "react-icons/io";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import moment from "moment";
 
 interface ModalProps {
@@ -24,6 +24,11 @@ const MonthModal = ({ isOpen, onClose }: ModalProps) => {
   const currentYear = moment().year();
   const currentMonth = moment().month() + 1;
   const years: YearList = [];
+  const currentMonthRef = useRef<HTMLDivElement | null>(null);
+
+  const monthSelect = (year: number, month: number) => () => {
+    console.log(year, month);
+  };
 
   for (let i = 3; i >= 0; i--) {
     const year = currentYear - i;
@@ -34,7 +39,14 @@ const MonthModal = ({ isOpen, onClose }: ModalProps) => {
     years.push({ name: year, months });
   }
 
-  console.log(years);
+  useEffect(() => {
+    if (isOpen && currentMonthRef.current) {
+      currentMonthRef.current.scrollIntoView({
+        behavior: "smooth", // 平滑滚动
+        block: "center", // 垂直居中
+      });
+    }
+  }, [isOpen]);
 
   if (isOpen) {
     return (
@@ -53,12 +65,18 @@ const MonthModal = ({ isOpen, onClose }: ModalProps) => {
                 <div className={styles.monthList}>
                   {year.months.map((month) => (
                     <div
-                      className={
+                      className={`${styles.month} ${
                         currentMonth === month.name && currentYear === year.name
                           ? styles.isCurrentMonth
                           : styles.month
-                      }
+                      }`}
                       key={month.name}
+                      ref={
+                        currentMonth === month.name && currentYear === year.name
+                          ? currentMonthRef
+                          : null
+                      }
+                      onClick={monthSelect(year.name, month.name)}
                     >
                       {month.name}月
                     </div>
