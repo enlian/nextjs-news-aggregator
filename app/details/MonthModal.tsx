@@ -1,11 +1,12 @@
 import styles from "./MonthModal.module.css";
 import { IoMdClose } from "react-icons/io";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import moment from "moment";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onTimeChange: (year: number,month: number) => void;
 }
 
 interface Month {
@@ -20,18 +21,20 @@ interface Year {
 
 type YearList = Year[];
 
-const MonthModal = ({ isOpen, onClose }: ModalProps) => {
-  const currentYear = moment().year();
-  const currentMonth = moment().month() + 1;
+const MonthModal = ({ isOpen, onClose, onTimeChange }: ModalProps) => {
   const years: YearList = [];
   const currentMonthRef = useRef<HTMLDivElement | null>(null);
+  const [currentYear, setYear] = useState(moment().year());
+  const [currentMonth, setMonth] = useState(moment().month() + 1);
 
   const monthSelect = (year: number, month: number) => () => {
-    console.log(year, month);
+    setYear(year);
+    setMonth(month);
+    onTimeChange(year, month);
   };
 
   for (let i = 3; i >= 0; i--) {
-    const year = currentYear - i;
+    const year = moment().year() - i;
     const months = Array.from({ length: 12 }, (index, j) => ({
       name: j + 1,
       isCurrent: j + 1 === currentMonth && year === currentYear,

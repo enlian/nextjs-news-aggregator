@@ -48,7 +48,7 @@ const DetailItem = () => {
 
       {items.map((i) => (
         <div key={i.time} className={styles.item}>
-          <RiMoneyCnyCircleFill size={50} color="green" />
+          <RiMoneyCnyCircleFill size={50} color="rgb(88,187,124)" />
           <div className={styles.middle}>
             <p className={styles.tag}>{i.tag}</p>
             <p className={styles.time}>{moment.unix(i.time).format("HH:mm")}</p>
