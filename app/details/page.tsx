@@ -6,6 +6,7 @@ import MonthPicker from "./MonthPicker";
 import MonthModal from "./MonthModal";
 import styles from "./page.module.css";
 import moment from "moment";
+import { FaRegEdit } from "react-icons/fa";
 
 export default function name() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -38,6 +39,12 @@ export default function name() {
         onClose={closeModal}
         onTimeChange={onTimeChange}
       />
+
+      <div className={styles.add}>
+        <FaRegEdit size={20}/>
+
+        <span>记一笔</span>
+      </div>
     </div>
   );
 }

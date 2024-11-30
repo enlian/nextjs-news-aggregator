@@ -1,7 +1,27 @@
 :root {
   --main-color: rgb(88,187,124);
 }
+/* 滚动条整体样式 */
+::-webkit-scrollbar {
+  width: 7px; /* 宽度 */
+  height: 7px; /* 高度（横向滚动条） */
+}
 
+/* 滚动条的滑块 */
+::-webkit-scrollbar-thumb {
+  background: #bcbcbc; /* 滑块颜色 */
+  border-radius: 5px; /* 圆角 */
+}
+
+/* 滑块在悬停状态下 */
+::-webkit-scrollbar-thumb:hover {
+  background: #939393; /* 滑块悬停时颜色 */
+}
+
+/* 滚动条的轨道 */
+::-webkit-scrollbar-track {
+  border-radius: 5px; /* 圆角 */
+}
 body {
   margin: 0;
   padding: 0;

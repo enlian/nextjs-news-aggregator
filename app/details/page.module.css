@@ -3,3 +3,25 @@
   height: 100vh;
   background-color:rgb(242,242,242);
 }
+.add{
+  position: fixed;
+  right: 35px;
+  bottom: 120px;
+  width: 100px;
+  height: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color);
+  border-radius: 20px;
+  cursor: pointer;
+  span{
+    margin-left: 5px;
+    font-size: small;
+    font-weight: bold;
+  }
+}

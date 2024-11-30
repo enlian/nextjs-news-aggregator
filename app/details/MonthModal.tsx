@@ -64,7 +64,7 @@ const MonthModal = ({ isOpen, onClose, onTimeChange }: ModalProps) => {
           <div className={styles.modalBody}>
             {years.map((year) => (
               <div key={year.name}>
-                <p>{year.name}年</p>
+                <p className={styles.yearTitle}>{year.name}年</p>
                 <div className={styles.monthList}>
                   {year.months.map((month) => (
                     <div
