@@ -4,6 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Header from "./components/Header";
 import "./globals.css";
+import { BiSolidDetail } from "react-icons/bi";
+import { FaChartPie } from "react-icons/fa";
+import { IoSettingsSharp } from "react-icons/io5";
 
 export default function RootLayout({
   children,
@@ -27,7 +30,8 @@ export default function RootLayout({
               isActive("details") ? "tab-item-active" : ""
             }`}
           >
-            <div>明细</div>
+            <BiSolidDetail size={25} />
+            <span>明细</span>
           </Link>
           <Link
             href="/statistics"
@@ -35,7 +39,9 @@ export default function RootLayout({
               isActive("statistics") ? "tab-item-active" : ""
             }`}
           >
-            <div>统计</div>
+            <FaChartPie size={23} />
+
+            <span>统计</span>
           </Link>
           <Link
             href="/settings"
@@ -43,7 +49,9 @@ export default function RootLayout({
               isActive("settings") ? "tab-item-active" : ""
             }`}
           >
-            <div>设计</div>
+            <IoSettingsSharp size={25} />
+
+            <span>设置</span>
           </Link>
         </footer>
       </body>
