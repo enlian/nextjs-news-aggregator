@@ -22,8 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <main>{children}</main>
-        <footer className="bottom-tabs">
+        {children}
+        <div className="bottom-tabs">
           <Link
             href="/details"
             className={`tab-item ${
@@ -53,7 +53,7 @@ export default function RootLayout({
 
             <span>设置</span>
           </Link>
-        </footer>
+        </div>
       </body>
     </html>
   );
