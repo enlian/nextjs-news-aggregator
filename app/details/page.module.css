@@ -3,9 +3,10 @@
   height: 100vh;
   background-color:rgb(242,242,242);
   position: relative;
+  padding-bottom: 100px;
 }
 .add{
-  position: fixed;
+  position: absolute;
   right: 35px;
   bottom: 120px;
   width: 100px;
