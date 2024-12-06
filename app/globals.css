@@ -1,5 +1,6 @@
 :root {
   --main-color: rgb(88, 187, 124);
+  --main-color-01: rgba(88, 187, 124,0.1);
 }
 /* 滚动条整体样式 */
 ::-webkit-scrollbar {
