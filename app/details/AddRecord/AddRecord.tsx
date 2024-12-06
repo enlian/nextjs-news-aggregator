@@ -23,13 +23,13 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
         >
           <IoMdClose size={30} onClick={onClose} className={styles.close} />
 
-          <div>
+          <div className={styles.typeBox}>
             <div>支出</div>
             <div>收入</div>
             <div>11月20日</div>
           </div>
-          <input type="number" />
-          <div>
+          <input type="number" className={styles.moneyInput} />
+          <div className={styles.tags}>
             <div>餐饮</div>
             <div>交通</div>
             <div>服饰</div>
