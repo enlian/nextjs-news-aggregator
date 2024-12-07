@@ -2,8 +2,10 @@ import styles from "./AddRecord.module.css";
 import { IoMdClose } from "react-icons/io";
 import React, { useEffect, useRef, useState } from "react";
 import moment from "moment";
-import { MdAttachMoney } from "react-icons/md";
-import { FaCaretDown } from "react-icons/fa";
+import { MdAttachMoney, MdFastfood, MdNightlife } from "react-icons/md";
+import { FaCaretDown, FaCar, FaShoppingCart } from "react-icons/fa";
+import { GiClothes } from "react-icons/gi";
+import { IoMdSchool } from "react-icons/io";
 
 interface Props {
   isOpen: boolean;
@@ -12,8 +14,6 @@ interface Props {
 }
 
 const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
-  useEffect(() => {}, [isOpen]);
-
   if (isOpen) {
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
@@ -41,11 +41,42 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
             <input type="number" className={styles.moneyInput} />
           </div>
           <div className={styles.tags}>
-            <div>餐饮</div>
-            <div>交通</div>
-            <div>服饰</div>
-            <div>购物</div>
-            <div>生活</div>
+            <div>
+              <div>
+                <MdFastfood size={30} />
+              </div>
+              <span>餐饮</span>
+            </div>
+            <div>
+              <div>
+                <FaCar size={30} />
+              </div>
+              <span>交通</span>
+            </div>
+            <div>
+              <div>
+                <GiClothes size={30} />
+              </div>
+              <span>服饰</span>
+            </div>
+            <div>
+              <div>
+                <FaShoppingCart size={30} />
+              </div>
+              <span>购物</span>
+            </div>
+            <div>
+              <div>
+                <MdNightlife size={30} />
+              </div>
+              <span>生活</span>
+            </div>
+            <div>
+              <div>
+                <IoMdSchool size={30} />
+              </div>
+              <span>教育</span>
+            </div>
           </div>
         </div>
       </div>
