@@ -2,6 +2,8 @@ import styles from "./AddRecord.module.css";
 import { IoMdClose } from "react-icons/io";
 import React, { useEffect, useRef, useState } from "react";
 import moment from "moment";
+import { MdAttachMoney } from "react-icons/md";
+import { FaCaretDown } from "react-icons/fa";
 
 interface Props {
   isOpen: boolean;
@@ -25,13 +27,19 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
 
           <div className={styles.typeBox}>
             <div className={styles.typeBoxL}>
-              <div className={styles.type}>支出</div>
+              <div className={`${styles.type} ${styles.selected}`}>支出</div>
               <div className={styles.type}>收入</div>
             </div>
 
-            <div className={styles.date}>11月20日</div>
+            <div className={styles.date}>
+              <span>11月20日</span>
+              <FaCaretDown size={16} color="#999" />
+            </div>
           </div>
-          <input type="number" className={styles.moneyInput} />
+          <div className={styles.moneyInputGroup}>
+            <MdAttachMoney size={30} />
+            <input type="number" className={styles.moneyInput} />
+          </div>
           <div className={styles.tags}>
             <div>餐饮</div>
             <div>交通</div>

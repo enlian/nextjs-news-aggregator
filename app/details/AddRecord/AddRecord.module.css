@@ -39,11 +39,22 @@
 .typeBox {
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
+  margin-top: 50px;
   justify-content: space-between;
   .typeBoxL {
     display: flex;
     flex-direction: row;
+  }
+  .date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(251, 251, 251);
+    width: 90px;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: small;
+    cursor: pointer;
   }
   .type {
     color: rgb(179, 179, 179);
@@ -64,5 +75,17 @@
   .type.selected {
     background-color: var(--main-color-01);
     color: var(--main-color);
+  }
+}
+.moneyInputGroup {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  align-items: center;
+  input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid rgb(225, 225, 225);
   }
 }
