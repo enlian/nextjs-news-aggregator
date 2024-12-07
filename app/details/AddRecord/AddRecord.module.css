@@ -21,9 +21,9 @@
 .modalContent {
   background: white;
   border-radius: 8px;
-  width: 369px;
+  width: 320px;
   height: 400px;
-  padding: 20px 5px 10px 20px;
+  padding: 20px 30px 20px 30px;
   /* padding: 20px; */
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -40,6 +40,11 @@
   display: flex;
   flex-direction: row;
   margin-top: 30px;
+  justify-content: space-between;
+  .typeBoxL {
+    display: flex;
+    flex-direction: row;
+  }
   .type {
     color: rgb(179, 179, 179);
     background-color: rgb(251, 251, 251);
