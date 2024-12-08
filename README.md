@@ -1,11 +1,12 @@
 ### **Nextjs记账本**
-Nextjs项目练手，仿微信记账本小程序，前后端俱全，使用最新的@reduxjs/toolkit进行状态管理，RTX框架大量简化使用Redux时要写的样板代码，学习Nextjs和redux的可以fork和star此项目，经常会更新功能和修改bug。
+Nextjs项目练手，界面仿微信记账本小程序，包含前后端代码。
+App Router模式，使用最新的Reduxjs Toolkit进行状态管理，此框架大量简化使用Redux时要写的样板代码，学习Nextjs和Redux的可以fork和star此项目，经常会更新功能和修改bug。
 
 #### **技术栈：**
 1. **前端**
    - **框架**：Next.js。
    - **样式**：CSS Modules。
-   - **状态管理**： @reduxjs/toolkit react-redux
+   - **状态管理**： Reduxjs/toolkit、react-redux
    - **图表库**：Chart.js。
 
 2. **后端**
