@@ -6,12 +6,12 @@ App Router模式，使用最新的Reduxjs Toolkit进行状态管理，此框架�
 1. **前端**
    - **框架**：Next.js。
    - **样式**：CSS Modules。
-   - **状态管理**： Reduxjs/toolkit、react-redux
+   - **状态管理**： Reduxjs Toolkit、react-redux
    - **图表库**：Chart.js。
 
 2. **后端**
    - **API 路由**：Next.js 内置 API。
-   - **数据库**：postgres。
+   - **数据库**：Postgres。
 
 3. **部署**
    - 使用 **Vercel** 部署
