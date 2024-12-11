@@ -24,7 +24,6 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
           }}
         >
           <IoMdClose size={30} onClick={onClose} className={styles.close} />
-
           <div className={styles.typeBox}>
             <div className={styles.typeBoxL}>
               <div className={`${styles.type} ${styles.selected}`}>支出</div>
