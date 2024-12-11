@@ -8,6 +8,8 @@ import styles from "./page.module.css";
 import moment from "moment";
 import { FaRegEdit } from "react-icons/fa";
 import AddRecord from "./AddRecord/AddRecord";
+import {useSelector} from 'react-redux'
+import {RootState} from './../store/store'
 
 export default function name() {
   const [isTimePickerModalOpen, setTimePickerModalOpen] = useState(false);
@@ -15,6 +17,8 @@ export default function name() {
   const [currentYear, setYear] = useState(moment().year());
   const [currentMonth, setMonth] = useState(moment().month() + 1);
 
+  const user = useSelector((state:RootState)=>state.user);
+  
   const items = [1, 2, 3, 4, 5, 6, 4, 8];
 
   const openTimePickerModal = () => setTimePickerModalOpen(true);
