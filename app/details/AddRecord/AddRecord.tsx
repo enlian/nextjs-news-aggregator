@@ -20,6 +20,7 @@ interface Months {
   days: number[];
 }
 
+//获取过去两年内的每年每月和每日
 function getDays() {
   const nowYear = moment().year();
   const arrs: Months[] = [];
