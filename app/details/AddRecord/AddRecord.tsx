@@ -6,7 +6,7 @@ import { MdAttachMoney, MdFastfood, MdNightlife } from "react-icons/md";
 import { FaCaretDown, FaCar, FaShoppingCart } from "react-icons/fa";
 import { GiClothes } from "react-icons/gi";
 import { IoMdSchool } from "react-icons/io";
-import Moment from 'moment'
+import Moment from "moment";
 
 interface Props {
   isOpen: boolean;
@@ -14,7 +14,40 @@ interface Props {
   onRecordSubmit: () => void;
 }
 
+interface Months {
+  year: number;
+  month: number;
+  days: number[];
+}
+
+function getDays() {
+  const nowYear = moment().year();
+  const arrs: Months[] = [];
+
+  for (let year = nowYear - 2; year <= nowYear; year++) {
+    for (let month = 0; month < 12; month++) {
+      const dayInMonth = moment({ year, month }).daysInMonth();
+      const monthData: Months = {
+        year: year,
+        month: month + 1,
+        days: [],
+      };
+      for (let day = 1; day <= dayInMonth; day++) {
+        monthData.days.push(day);
+      }
+      arrs.push(monthData);
+    }
+  }
+  return arrs;
+}
+
 const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
+  const [daysArray, setDaysArray] = useState<Months[]>([]);
+
+  useEffect(() => {
+    setDaysArray(getDays());
+  }, []);
+
   if (isOpen) {
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
