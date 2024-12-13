@@ -6,6 +6,7 @@ import { MdAttachMoney, MdFastfood, MdNightlife } from "react-icons/md";
 import { FaCaretDown, FaCar, FaShoppingCart } from "react-icons/fa";
 import { GiClothes } from "react-icons/gi";
 import { IoMdSchool } from "react-icons/io";
+import Moment from 'moment'
 
 interface Props {
   isOpen: boolean;

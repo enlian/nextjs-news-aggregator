@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.26.0",
-    "@nextui-org/react": "^2.6.8",
     "@reduxjs/toolkit": "^2.4.0",
     "axios": "^1.7.7",
     "moment": "^2.30.1",
@@ -23,6 +22,7 @@
     "react-virtuoso": "^4.12.1"
   },
   "devDependencies": {
+    "@types/moment": "^2.11.29",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
