@@ -57,6 +57,11 @@
   span:hover {
     background-color: #efefef;
   }
+  .selectedDay,
+  .selectedDay:hover {
+    background-color: var(--main-color);
+    color: #fff;
+  }
 }
 .modalBody {
   overflow-y: scroll;

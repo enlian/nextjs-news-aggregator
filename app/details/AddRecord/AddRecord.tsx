@@ -28,8 +28,6 @@ function getDays() {
   const nowDay = moment().date();
   const arrs: Months[] = [];
 
-  console.log(nowYear, nowMonth, nowDay);
-
   for (let year = nowYear - 2; year <= nowYear; year++) {
     for (let month = 0; month < 12; month++) {
       const dayInMonth = moment({ year, month }).daysInMonth();
@@ -56,6 +54,11 @@ function getDays() {
 const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
   const [daysArray, setDaysArray] = useState<Months[]>([]);
   const [isDateModalOpen, setDateModalOpen] = useState(true);
+  const [selectedDate, setSelectedDate] = useState({
+    year: moment().year(),
+    month: moment().month(),
+    day: moment().date(),
+  });
 
   useEffect(() => {
     setDaysArray(getDays());
@@ -84,7 +87,18 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
                   </p>
                   <div className={styles.days}>
                     {i.days.map((j) => (
-                      <span key={j}>{j}</span>
+                      <span
+                        className={
+                          selectedDate.year === i.year &&
+                          selectedDate.month + 1 === i.month &&
+                          selectedDate.day === j
+                            ? styles.selectedDay
+                            : ""
+                        }
+                        key={j}
+                      >
+                        {j}
+                      </span>
                     ))}
                   </div>
                 </div>
