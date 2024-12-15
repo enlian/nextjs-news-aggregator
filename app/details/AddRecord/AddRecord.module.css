@@ -21,17 +21,41 @@
 .modalContent {
   background: white;
   border-radius: 8px;
-  width: 320px;
-  padding: 20px 30px 40px 30px;
+  width: 370px;
+  padding: 20px 0 40px 0;
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  max-height: 400px;
+  .title{
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+}
+.yearTitle{
+  text-align: center;
+}
+.days{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  span{
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }
 .modalBody {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
+  height: 400px;
+  padding: 0 20px 0 20px;
 }
 .typeBox {
   display: flex;

@@ -42,7 +42,6 @@ function getDays() {
     }
   }
   console.log(arrs);
-
   return arrs;
 }
 
@@ -63,14 +62,23 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
             e.stopPropagation();
           }}
         >
-          <IoMdClose size={30} onClick={onClose} className={styles.close} />
+          <div className={styles.header}>
+            <p className={styles.title}>请选择时间</p>
+            <IoMdClose size={30} onClick={onClose} className={styles.close} />
+          </div>
 
           {isDateModalOpen ? (
-            <div>
+            <div className={styles.modalBody}>
               {daysArray.map((i) => (
                 <div key={i.id}>
-                  <p>{i.year}</p>
-                  <p>{i.id}</p>
+                  <p className={styles.yearTitle}>
+                    {i.year + "年" + i.month + "月"}
+                  </p>
+                  <div className={styles.days}>
+                    {i.days.map((j) => (
+                      <span key={j}>{j}</span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
