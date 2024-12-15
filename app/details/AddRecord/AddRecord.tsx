@@ -24,7 +24,11 @@ interface Months {
 //获取过去两年内的每年每月和每日
 function getDays() {
   const nowYear = moment().year();
+  const nowMonth = moment().month();
+  const nowDay = moment().date();
   const arrs: Months[] = [];
+
+  console.log(nowYear, nowMonth, nowDay);
 
   for (let year = nowYear - 2; year <= nowYear; year++) {
     for (let month = 0; month < 12; month++) {
@@ -36,7 +40,11 @@ function getDays() {
         id: uuidv4(),
       };
       for (let day = 1; day <= dayInMonth; day++) {
-        monthData.days.push(day);
+        if (nowYear === year && nowMonth === month && day > nowDay) {
+          break;
+        } else {
+          monthData.days.push(day);
+        }
       }
       arrs.push(monthData);
     }
