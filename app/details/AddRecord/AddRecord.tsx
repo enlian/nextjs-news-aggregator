@@ -39,17 +39,32 @@ function getDays() {
       arrs.push(monthData);
     }
   }
+  console.log(arrs);
+
   return arrs;
 }
 
 const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
   const [daysArray, setDaysArray] = useState<Months[]>([]);
+  const [isDateModalOpen, setDateModalOpen] = useState(true);
 
   useEffect(() => {
     setDaysArray(getDays());
   }, []);
 
   if (isOpen) {
+    if (isDateModalOpen) {
+      return (
+        <div>
+          {daysArray.map((i) => (
+            <div key={moment().date()}>
+              <p>{i.year}</p>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
         <div
