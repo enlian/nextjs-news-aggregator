@@ -6,7 +6,7 @@ import { MdAttachMoney, MdFastfood, MdNightlife } from "react-icons/md";
 import { FaCaretDown, FaCar, FaShoppingCart } from "react-icons/fa";
 import { GiClothes } from "react-icons/gi";
 import { IoMdSchool } from "react-icons/io";
-import Moment from "moment";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props {
   isOpen: boolean;
@@ -18,6 +18,7 @@ interface Months {
   year: number;
   month: number;
   days: number[];
+  id: string;
 }
 
 //获取过去两年内的每年每月和每日
@@ -32,6 +33,7 @@ function getDays() {
         year: year,
         month: month + 1,
         days: [],
+        id: uuidv4(),
       };
       for (let day = 1; day <= dayInMonth; day++) {
         monthData.days.push(day);
@@ -53,18 +55,6 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
   }, []);
 
   if (isOpen) {
-    if (isDateModalOpen) {
-      return (
-        <div>
-          {daysArray.map((i) => (
-            <div key={moment().date()}>
-              <p>{i.year}</p>
-            </div>
-          ))}
-        </div>
-      );
-    }
-
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
         <div
@@ -74,59 +64,75 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
           }}
         >
           <IoMdClose size={30} onClick={onClose} className={styles.close} />
-          <div className={styles.typeBox}>
-            <div className={styles.typeBoxL}>
-              <div className={`${styles.type} ${styles.selected}`}>支出</div>
-              <div className={styles.type}>收入</div>
-            </div>
 
-            <div className={styles.date}>
-              <span>11月20日</span>
-              <FaCaretDown size={16} color="#999" />
-            </div>
-          </div>
-          <div className={styles.moneyInputGroup}>
-            <MdAttachMoney size={30} />
-            <input type="number" className={styles.moneyInput} />
-          </div>
-          <div className={styles.tags}>
+          {isDateModalOpen ? (
             <div>
-              <div>
-                <MdFastfood size={30} />
-              </div>
-              <span>餐饮</span>
+              {daysArray.map((i) => (
+                <div key={i.id}>
+                  <p>{i.year}</p>
+                  <p>{i.id}</p>
+                </div>
+              ))}
             </div>
+          ) : (
             <div>
-              <div>
-                <FaCar size={30} />
+              <div className={styles.typeBox}>
+                <div className={styles.typeBoxL}>
+                  <div className={`${styles.type} ${styles.selected}`}>
+                    支出
+                  </div>
+                  <div className={styles.type}>收入</div>
+                </div>
+
+                <div className={styles.date}>
+                  <span>11月20日</span>
+                  <FaCaretDown size={16} color="#999" />
+                </div>
               </div>
-              <span>交通</span>
-            </div>
-            <div>
-              <div>
-                <GiClothes size={30} />
+              <div className={styles.moneyInputGroup}>
+                <MdAttachMoney size={30} />
+                <input type="number" className={styles.moneyInput} />
               </div>
-              <span>服饰</span>
-            </div>
-            <div>
-              <div>
-                <FaShoppingCart size={30} />
+              <div className={styles.tags}>
+                <div>
+                  <div>
+                    <MdFastfood size={30} />
+                  </div>
+                  <span>餐饮</span>
+                </div>
+                <div>
+                  <div>
+                    <FaCar size={30} />
+                  </div>
+                  <span>交通</span>
+                </div>
+                <div>
+                  <div>
+                    <GiClothes size={30} />
+                  </div>
+                  <span>服饰</span>
+                </div>
+                <div>
+                  <div>
+                    <FaShoppingCart size={30} />
+                  </div>
+                  <span>购物</span>
+                </div>
+                <div>
+                  <div>
+                    <MdNightlife size={30} />
+                  </div>
+                  <span>生活</span>
+                </div>
+                <div>
+                  <div>
+                    <IoMdSchool size={30} />
+                  </div>
+                  <span>教育</span>
+                </div>
               </div>
-              <span>购物</span>
             </div>
-            <div>
-              <div>
-                <MdNightlife size={30} />
-              </div>
-              <span>生活</span>
-            </div>
-            <div>
-              <div>
-                <IoMdSchool size={30} />
-              </div>
-              <span>教育</span>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     );
