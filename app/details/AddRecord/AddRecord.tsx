@@ -61,11 +61,19 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
     day: moment().date(),
   });
 
+  const dateSelect = (year: number, month: number, day: number) => () => {
+    setSelectedDate({
+      year,
+      month: month - 1,
+      day,
+    });
+  };
+
   useEffect(() => {
     setDaysArray(getDays());
     if (isOpen && currentRef.current) {
       currentRef.current.scrollIntoView({
-        behavior: "smooth",
+        behavior: "auto",
         block: "center",
       });
     }
@@ -95,6 +103,7 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
                   <div className={styles.days}>
                     {i.days.map((j) => (
                       <span
+                        onClick={dateSelect(i.year, i.month, j)}
                         ref={
                           selectedDate.year === i.year &&
                           selectedDate.month + 1 === i.month &&
