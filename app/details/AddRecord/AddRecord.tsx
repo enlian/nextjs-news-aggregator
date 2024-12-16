@@ -54,6 +54,7 @@ function getDays() {
 const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
   const [daysArray, setDaysArray] = useState<Months[]>([]);
   const [isDateModalOpen, setDateModalOpen] = useState(true);
+  const currentRef = useRef<HTMLDivElement | null>(null);
   const [selectedDate, setSelectedDate] = useState({
     year: moment().year(),
     month: moment().month(),
@@ -62,7 +63,13 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
 
   useEffect(() => {
     setDaysArray(getDays());
-  }, []);
+    if (isOpen && currentRef.current) {
+      currentRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [isOpen]);
 
   if (isOpen) {
     return (
@@ -88,6 +95,13 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
                   <div className={styles.days}>
                     {i.days.map((j) => (
                       <span
+                        ref={
+                          selectedDate.year === i.year &&
+                          selectedDate.month + 1 === i.month &&
+                          selectedDate.day === j
+                            ? currentRef
+                            : null
+                        }
                         className={
                           selectedDate.year === i.year &&
                           selectedDate.month + 1 === i.month &&
