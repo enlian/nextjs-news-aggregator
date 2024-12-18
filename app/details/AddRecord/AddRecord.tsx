@@ -86,7 +86,7 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
         block: "center",
       });
     }
-  }, [isOpen]);
+  }, [isOpen, isDateModalOpen]);
 
   if (isOpen) {
     return (
@@ -98,8 +98,8 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
           }}
         >
           <div className={styles.header}>
-            <p className={styles.title} onClick={showDatePicker}>
-              请选择时间
+            <p className={styles.title}>
+              {isDateModalOpen ? "请选择时间" : "记一笔"}
             </p>
 
             {isDateModalOpen ? (
@@ -157,7 +157,7 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
                   <div className={styles.type}>收入</div>
                 </div>
 
-                <div className={styles.date}>
+                <div className={styles.date} onClick={showDatePicker}>
                   <span>11月20日</span>
                   <FaCaretDown size={16} color="#999" />
                 </div>
