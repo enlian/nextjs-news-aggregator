@@ -7,6 +7,7 @@ import { FaCaretDown, FaCar, FaShoppingCart } from "react-icons/fa";
 import { GiClothes } from "react-icons/gi";
 import { IoMdSchool } from "react-icons/io";
 import { v4 as uuidv4 } from "uuid";
+import { IoChevronBack } from "react-icons/io5";
 
 interface Props {
   isOpen: boolean;
@@ -91,6 +92,7 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
           <div className={styles.header}>
             <p className={styles.title}>请选择时间</p>
             <IoMdClose size={30} onClick={onClose} className={styles.close} />
+            <IoChevronBack />
           </div>
 
           {isDateModalOpen ? (
