@@ -54,7 +54,7 @@ function getDays() {
 
 const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
   const [daysArray, setDaysArray] = useState<Months[]>([]);
-  const [isDateModalOpen, setDateModalOpen] = useState(true);
+  const [isDateModalOpen, setDateModalOpen] = useState(false);
   const currentRef = useRef<HTMLDivElement | null>(null);
   const [selectedDate, setSelectedDate] = useState({
     year: moment().year(),
@@ -68,6 +68,14 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
       month: month - 1,
       day,
     });
+  };
+
+  const showDatePicker = () => {
+    setDateModalOpen(true);
+  };
+
+  const goBack = () => {
+    setDateModalOpen(false);
   };
 
   useEffect(() => {
@@ -90,9 +98,19 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
           }}
         >
           <div className={styles.header}>
-            <p className={styles.title}>请选择时间</p>
-            <IoMdClose size={30} onClick={onClose} className={styles.close} />
-            <IoChevronBack />
+            <p className={styles.title} onClick={showDatePicker}>
+              请选择时间
+            </p>
+
+            {isDateModalOpen ? (
+              <IoChevronBack
+                size={30}
+                onClick={goBack}
+                className={styles.close}
+              />
+            ) : (
+              <IoMdClose size={30} onClick={onClose} className={styles.close} />
+            )}
           </div>
 
           {isDateModalOpen ? (
