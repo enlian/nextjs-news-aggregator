@@ -148,7 +148,7 @@ const AddRecord = ({ isOpen, onClose, onRecordSubmit }: Props) => {
               ))}
             </div>
           ) : (
-            <div>
+            <div className={styles.addRecord}>
               <div className={styles.typeBox}>
                 <div className={styles.typeBoxL}>
                   <div className={`${styles.type} ${styles.selected}`}>

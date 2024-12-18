@@ -32,6 +32,9 @@
     padding-bottom: 10px;
   }
 }
+.addRecord{
+  padding: 20px 20px 20px 20px;
+}
 .yearTitle {
   text-align: center;
   margin: 5px 0 10px 0;
@@ -73,7 +76,6 @@
 .typeBox {
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
   justify-content: space-between;
   .typeBoxL {
     display: flex;
